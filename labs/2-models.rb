@@ -21,9 +21,28 @@ Salesperson.destroy_all
 
 # 2. insert 1-2 rows in salespeople table.
 
+puts "There are #{Salesperson.all.count} salespeople"
+
+new_salespeople = Salesperson.new 
+new_salespeople["first_name"] = "Ben"
+new_salespeople["last_name"] = "Block"
+new_salespeople["email"] = "bblock@sales.com"
+
+new_salespeople.save
+
+new_salespeople = Salesperson.new 
+new_salespeople["first_name"] = "Terry"
+new_salespeople["last_name"] = "Goguen"
+new_salespeople["email"] = "tgoguen@sales.com"
+
+new_salespeople.save
+
+puts "There are #{Salesperson.all.count} salespeople"
+
 # 3. write code to display how many salespeople rows are in the database
 
-# ---------------------------------
+# puts "Salespeople: #{Salesperson.all.count}"
+
 # Salespeople: 2
 
 # 4. modify/update column data for a row in the salespeople table.
@@ -31,7 +50,14 @@ Salesperson.destroy_all
 # CHALLENGE:
 # 5. write code to display each salesperson's full name
 
-# ---------------------------------
 # Salespeople: 2
+puts "Salespeople: #{Salesperson.all.count}"
 # Ben Block
 # Brian Eng
+all_salespeople = Salesperson.all 
+for person in all_salespeople
+    first_name = person["first_name"]
+    last_name = person["last_name"]
+    puts "#{first_name} #{last_name}"
+end 
+
